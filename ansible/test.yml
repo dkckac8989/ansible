@@ -1,0 +1,12 @@
+---
+- name: Setup Web Server
+  hosts: webserver
+  remote_user: root
+
+  tasks:
+  - name: Install apache server
+    apt : 
+      name: apache2
+      state: present
+  - name : Add sample file
+    command: echo "hello world" > /var/www/html/index.html
